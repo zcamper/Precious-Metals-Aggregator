@@ -19,6 +19,9 @@ DEALERS = {
     'GoldSilver.com':   'vElSO8MZ9MsSC72T6',
 }
 
+# JM Bullion uses Playwright (needs more memory), all others use lightweight curl_cffi
+HEAVY_DEALERS = {'JM Bullion'}
+
 
 async def run_dealer(client: ApifyClientAsync, dealer_name: str, actor_id: str,
                      search_terms: list[str], max_items: int) -> list[dict]:
@@ -32,7 +35,7 @@ async def run_dealer(client: ApifyClientAsync, dealer_name: str, actor_id: str,
                 'max_items': max_items,
             },
             timeout_secs=300,
-            memory_mbytes=4096,
+            memory_mbytes=4096 if dealer_name in HEAVY_DEALERS else 512,
         )
 
         run_status = run.get('status', 'UNKNOWN')
