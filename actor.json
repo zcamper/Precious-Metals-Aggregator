@@ -1,0 +1,10 @@
+{
+    "actorSpecification": 1,
+    "name": "precious-metals-scraper",
+    "title": "Precious Metals Price Aggregator",
+    "description": "Scrapes product data from 11 major precious metals dealers simultaneously: JM Bullion, SD Bullion, APMEX, Hero Bullion, Silver.com, Provident Metals, Monument Metals, BGASC, ModernCoinMart, Kitco, and GoldSilver.com. Returns a unified dataset with dealer name, product name, price, image, SKU, availability, and description.",
+    "version": "0.0",
+    "input": "./.actor/input_schema.json",
+    "dataset": "./.actor/dataset_schema.json",
+    "dockerfile": "./Dockerfile"
+}
